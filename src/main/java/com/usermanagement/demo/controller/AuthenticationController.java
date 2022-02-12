@@ -55,7 +55,7 @@ public class AuthenticationController {
 			throw new ServletException("Invalid Credentials");
 		}
 		else {
-			jwtToken=Jwts.builder().setSubject(username).setIssuedAt(new Date()).setExpiration(new Date(System.currentTimeMillis()+30000)).signWith(SignatureAlgorithm.ES256,"secret key").compact();
+			jwtToken=Jwts.builder().setSubject(username).setIssuedAt(new Date()).setExpiration(new Date(System.currentTimeMillis()+300000)).signWith(SignatureAlgorithm.HS256,"secret key").compact();
 		}
 		return jwtToken;
 	}
