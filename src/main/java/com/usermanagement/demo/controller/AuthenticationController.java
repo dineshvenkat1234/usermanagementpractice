@@ -74,4 +74,6 @@ public class AuthenticationController {
 		}
 		return new ResponseEntity<>(map, HttpStatus.OK);
 	}
+	
+
 }
