@@ -75,5 +75,15 @@ public class AuthenticationController {
 		return new ResponseEntity<>(map, HttpStatus.OK);
 	}
 	
-
+	@PostMapping("/userLogin")
+	public ResponseEntity<?> getUserToken(@RequestBody User user){
+		String jwtToken=null;
+		try {
+			 jwtToken = generateToken(user.getUsername(), user.getPassword());
+		}
+		catch(Exception e) {
+			return new ResponseEntity<String>(e.getMessage(),HttpStatus.UNAUTHORIZED);
+		}
+		return new ResponseEntity<String>(jwtToken,HttpStatus.OK);
+	}
 }
