@@ -39,7 +39,7 @@ public class AuthenticationController {
 	@PostMapping(value="/addUser", consumes="application/json; charset=utf-8")
 	public ResponseEntity<?> addUser(@RequestBody User user){
 		 if(userServiceImpl.addUser(user)!=null) {
-			 return new ResponseEntity<User>(user,HttpStatus.OK);
+			 return new ResponseEntity<User>(user,HttpStatus.CREATED);
 		 }
 		return new ResponseEntity<String>("user not inserted", HttpStatus.CONFLICT);
 	}
